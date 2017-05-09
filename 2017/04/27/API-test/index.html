@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Stratifyd Node JS APIQuick StartInstall Signals API1$ npm install signals-api Get API Credential Create an API key in the account info panel.    The API key has the same user groups as the owner. Down">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2017/04/27/API-test/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Stratifyd Node JS APIQuick StartInstall Signals API1$ npm install signals-api Get API Credential Create an API key in the account info panel.    The API key has the same user groups as the owner. Down">
+<meta property="og:updated_time" content="2017-04-27T21:53:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="Stratifyd Node JS APIQuick StartInstall Signals API1$ npm install signals-api Get API Credential Create an API key in the account info panel.    The API key has the same user groups as the owner. Down">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-API-test" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/27/API-test/" class="article-date">
+  <time datetime="2017-04-27T21:46:49.000Z" itemprop="datePublished">2017-04-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Stratifyd-Node-JS-API"><a href="#Stratifyd-Node-JS-API" class="headerlink" title="Stratifyd Node JS API"></a>Stratifyd Node JS API</h1><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Install-Signals-API"><a href="#Install-Signals-API" class="headerlink" title="Install Signals API"></a>Install Signals API</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install signals-api</div></pre></td></tr></table></figure>
+<h3 id="Get-API-Credential"><a href="#Get-API-Credential" class="headerlink" title="Get API Credential"></a>Get API Credential</h3><ol>
+<li>Create an API key in the account info panel.    The API key has the same user groups as the owner.</li>
+<li>Download the API key.</li>
+</ol>
+<p><strong>Warning!</strong> It’s your resposibility to protect the credential.<br>A json with a complete credential will be pasted to your clipboard.</p>
+<p>NodeJS has a easy way to load json.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports=&#123;<span class="comment">/*your credential here*/</span>&#125; <span class="comment">// load json with require</span></div></pre></td></tr></table></figure>
+<p>If you want to use the command line, save the credential to <strong>.signalsrc</strong> under your working folder.</p>
+<h3 id="Create-API-instance"><a href="#Create-API-instance" class="headerlink" title="Create API instance"></a>Create API instance</h3><p>Save the credential to a json file and import it into your NodeJS code.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// import signals api</span></div><div class="line"><span class="keyword">var</span> Signals = <span class="built_in">require</span>(<span class="string">'signals-api'</span>).Signals;</div><div class="line"><span class="comment">// load your credential</span></div><div class="line"><span class="keyword">var</span> kAPPCredential = <span class="built_in">require</span>(<span class="string">'./appCredential'</span>);</div><div class="line"><span class="comment">// if region is undefined, then it is defaulted to en</span></div><div class="line"><span class="keyword">var</span> region = <span class="string">'en'</span></div><div class="line"><span class="keyword">var</span> api = Signals(kAPPCredential,<span class="string">'en'</span>);</div><div class="line"><span class="comment">// do something with the api ...</span></div></pre></td></tr></table></figure>
+<p><strong>Replace ‘en’ with ‘zh’ if you are using china node</strong></p>
+<h3 id="Install-Signals-Command-Line-Tool"><a href="#Install-Signals-Command-Line-Tool" class="headerlink" title="Install Signals Command Line Tool"></a>Install Signals Command Line Tool</h3><p><strong>Command line tool is no longer included in the signals-api, use signals-cli instead</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g signals-cli</div></pre></td></tr></table></figure>
+<h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><h3 id="List-finished-jobs"><a href="#List-finished-jobs" class="headerlink" title="List finished jobs"></a>List finished jobs</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// import signals api</span></div><div class="line"><span class="keyword">var</span> Signals = <span class="built_in">require</span>(<span class="string">'signals-api'</span>);</div><div class="line"><span class="comment">// load your credential</span></div><div class="line"><span class="keyword">var</span> kAPPCredential = <span class="built_in">require</span>(<span class="string">'./appCredential'</span>);</div><div class="line"><span class="keyword">var</span> api = <span class="keyword">new</span> Signals(kAPPCredential,<span class="string">'en'</span>);</div><div class="line"><span class="comment">// list all finished jobs</span></div><div class="line">api.getJobStatus(&#123;</div><div class="line">	<span class="attr">pageIndex</span>: <span class="number">0</span>,</div><div class="line">	<span class="attr">pageSize</span>: <span class="number">25</span>,</div><div class="line">	<span class="attr">sortBy</span>: <span class="string">'time'</span>,</div><div class="line">	<span class="attr">sortOrder</span>: <span class="number">-1</span>,</div><div class="line">	<span class="attr">filter</span>: &#123;<span class="attr">current</span>:<span class="number">1</span>,[<span class="string">'status.code'</span>]:<span class="number">40</span>&#125;</div><div class="line">&#125;, <span class="function"><span class="keyword">function</span> (<span class="params"> error, profiles, response</span>) </span>&#123;</div><div class="line">	<span class="keyword">if</span> (profiles &amp;&amp; profiles.items) &#123;</div><div class="line">		profiles.items.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">p</span>) </span>&#123;</div><div class="line">			<span class="keyword">var</span> name = p.name;</div><div class="line">			<span class="keyword">var</span> fid = p.fid;</div><div class="line">			<span class="keyword">var</span> statusCode = p.status.code;</div><div class="line">			<span class="keyword">var</span> detail = p.status.detail;</div><div class="line">			<span class="built_in">console</span>.log(&#123;</div><div class="line">				<span class="attr">name</span>: name,</div><div class="line">				<span class="attr">fid</span>: fid,</div><div class="line">				<span class="attr">statusCode</span>: statusCode,</div><div class="line">				<span class="attr">detail</span>: detail</div><div class="line">			&#125;);</div><div class="line">		&#125;);</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="List-running-jobs"><a href="#List-running-jobs" class="headerlink" title="List running jobs"></a>List running jobs</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// import signals api</span></div><div class="line"><span class="keyword">var</span> Signals = <span class="built_in">require</span>(<span class="string">'signals-api'</span>);</div><div class="line"><span class="comment">// load your credential</span></div><div class="line"><span class="keyword">var</span> kAPPCredential = <span class="built_in">require</span>(<span class="string">'./appCredential'</span>);</div><div class="line"><span class="keyword">var</span> api = <span class="keyword">new</span> Signals(kAPPCredential,<span class="string">'en'</span>);</div><div class="line"><span class="comment">// list all finished jobs</span></div><div class="line">api.getJobStatus(&#123;</div><div class="line">	<span class="attr">pageIndex</span>: <span class="number">0</span>,</div><div class="line">	<span class="attr">pageSize</span>: <span class="number">25</span>,</div><div class="line">	<span class="attr">sortBy</span>: <span class="string">'time'</span>,</div><div class="line">	<span class="attr">sortOrder</span>: <span class="number">-1</span>,</div><div class="line">	<span class="attr">filter</span>: &#123;[<span class="string">'status.code'</span>]:&#123;[<span class="string">'$lt'</span>]:<span class="number">40</span>&#125;&#125;</div><div class="line">&#125;, <span class="function"><span class="keyword">function</span> (<span class="params"> error, profiles, response </span>) </span>&#123;</div><div class="line">	<span class="keyword">if</span> (profiles &amp;&amp; profiles.items) &#123;</div><div class="line">		profiles.items.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">p</span>) </span>&#123;</div><div class="line">			<span class="keyword">var</span> name = p.name;</div><div class="line">			<span class="keyword">var</span> fid = p.fid;</div><div class="line">			<span class="keyword">var</span> statusCode = p.status.code;</div><div class="line">			<span class="keyword">var</span> detail = p.status.detail;</div><div class="line">			<span class="built_in">console</span>.log(&#123;</div><div class="line">				<span class="attr">name</span>: name,</div><div class="line">				<span class="attr">fid</span>: fid,</div><div class="line">				<span class="attr">statusCode</span>: statusCode,</div><div class="line">				<span class="attr">detail</span>: detail</div><div class="line">			&#125;);</div><div class="line">		&#125;);</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="Get-a-specific-job"><a href="#Get-a-specific-job" class="headerlink" title="Get a specific job"></a>Get a specific job</h3><pre><code>You need a job id to locate a specific job.
+Job ids can be found in the response of creating a new job or the previous job status calls.
+</code></pre><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// import signals api</span></div><div class="line"><span class="keyword">var</span> Signals = <span class="built_in">require</span>(<span class="string">'signals-api'</span>);</div><div class="line"><span class="comment">// load your credential</span></div><div class="line"><span class="keyword">var</span> kAPPCredential = <span class="built_in">require</span>(<span class="string">'./appCredential'</span>);</div><div class="line"><span class="keyword">var</span> api = <span class="keyword">new</span> Signals(kAPPCredential,<span class="string">'en'</span>);</div><div class="line">signals.job(args.jobId,<span class="function"><span class="keyword">function</span>(<span class="params"> error, config, response </span>) </span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(config);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>Command Line</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ signals -job &lt;job id&gt;</div></pre></td></tr></table></figure>
+<h3 id="Create-a-new-job"><a href="#Create-a-new-job" class="headerlink" title="Create a new job"></a>Create a new job</h3><pre><code>You need a CSV data and a job configuration to create a job.
+The job configuration tells Signals how to process the data in the csv and provides initial meta data for the job.
+Check out more detailed job configuration/parameters that you can use in the &quot;Job Configuration&quot; section.
+</code></pre><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// import signals api</span></div><div class="line"><span class="keyword">var</span> Signals = <span class="built_in">require</span>(<span class="string">'signals-api'</span>);</div><div class="line"><span class="comment">// load your credential</span></div><div class="line"><span class="keyword">var</span> kAPPCredential = <span class="built_in">require</span>(<span class="string">'./appCredential'</span>);</div><div class="line"><span class="keyword">var</span> api = <span class="keyword">new</span> Signals(kAPPCredential,<span class="string">'en'</span>);</div><div class="line"><span class="comment">// create a new job</span></div><div class="line"><span class="keyword">var</span> job = api.job();</div><div class="line">job.config(&#123;</div><div class="line">	<span class="string">"file_encoding"</span>: <span class="string">"utf-8"</span>,</div><div class="line">	<span class="string">"params"</span>: &#123;</div><div class="line">		<span class="string">"text_index"</span>: [<span class="string">"text"</span>],</div><div class="line">		<span class="string">"user_index"</span>: [],</div><div class="line">		<span class="string">"user_image_index"</span>: [],</div><div class="line">		<span class="string">"date_index.unknown"</span>: [<span class="string">"date"</span>],</div><div class="line">		<span class="string">"user_timezone"</span>: <span class="number">-4</span>,</div><div class="line">		<span class="string">"geo_index.unknown"</span>: [<span class="string">"location"</span>]</div><div class="line">	&#125;,</div><div class="line">	<span class="comment">// "run_language_detection":true</span></div><div class="line">	<span class="string">"meta"</span>: &#123;</div><div class="line">		<span class="string">"name"</span>: <span class="string">"API test small_lulu.csv 2016-6-24"</span>,</div><div class="line">		<span class="string">"source"</span>: <span class="string">"csv"</span></div><div class="line">	&#125;</div><div class="line">&#125;);</div><div class="line"><span class="comment">// upload data</span></div><div class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</div><div class="line">job.uploadData(fs.createReadStream(<span class="string">'../../samples/small_lulu.csv'</span>), <span class="function"><span class="keyword">function</span> (<span class="params"> error, body, response </span>) </span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(&#123; <span class="attr">fid</span>: job.fid() &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>Command Line</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ signals submit -config &lt;job configuration <span class="keyword">in</span> json&gt; -data &lt;csv file&gt;</div></pre></td></tr></table></figure>
+<h3 id="Delete-a-job"><a href="#Delete-a-job" class="headerlink" title="Delete a job"></a>Delete a job</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// import signals api</span></div><div class="line"><span class="keyword">var</span> Signals = <span class="built_in">require</span>(<span class="string">'signals-api'</span>);</div><div class="line"><span class="comment">// load your credential</span></div><div class="line"><span class="keyword">var</span> kAPPCredential = <span class="built_in">require</span>(<span class="string">'./appCredential'</span>);</div><div class="line"><span class="keyword">var</span> api = <span class="keyword">new</span> Signals(kAPPCredential,<span class="string">'en'</span>);</div><div class="line"><span class="keyword">var</span> jobId = <span class="string">''</span> <span class="comment">/*job id*/</span>;</div><div class="line">api.deleteJob(jobId, <span class="function"><span class="keyword">function</span>(<span class="params"> error, body,response </span>) </span>&#123;</div><div class="line">	<span class="keyword">if</span>( response.success ) &#123;</div><div class="line">		<span class="built_in">console</span>.log(<span class="string">'Job deleted'</span>);</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>Command Line</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ signals delete -job &lt;job id&gt;</div></pre></td></tr></table></figure>
+<h2 id="Job-Configuration"><a href="#Job-Configuration" class="headerlink" title="Job Configuration"></a>Job Configuration</h2><p>Job configuration tells Signals how to process the data.<br>The most important part is the params which define the data type of each column in the csv file.<br>You have to assign an array of column names to each index.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="string">"file_encoding"</span>: <span class="string">"utf-8"</span>, <span class="comment">// encoding</span></div><div class="line">	<span class="string">"params"</span>: &#123;</div><div class="line"></div><div class="line">		<span class="comment">// map your header fields</span></div><div class="line"></div><div class="line">			<span class="comment">//Text Analysis</span></div><div class="line">			<span class="string">"text_index"</span>: [ ... text columns ],	<span class="comment">// multi value, put all your text fields in this array</span></div><div class="line"></div><div class="line">			<span class="comment">//Contributors</span></div><div class="line">			<span class="string">"user_index"</span>: [ ... user id column ], <span class="comment">// only support 1 user field now</span></div><div class="line">			<span class="string">"user_image_index"</span>: [ ... user image src columns ], <span class="comment">// 1 user image field, need to map "user_index" too</span></div><div class="line"></div><div class="line">			<span class="comment">// Geo Info, use related fields together, the more detailed fieilds you put in, the more accurate and efficient our engine will be</span></div><div class="line">			<span class="string">"geo_index.unknown"</span> : [ ... general address columns ],</div><div class="line"></div><div class="line">			<span class="string">"geo_index.global"</span>: [ ... country name columns ]</div><div class="line">			<span class="string">"geo_index.subglobal"</span>: [ ... state/provices name columns ]</div><div class="line">			<span class="string">"geo_index.local"</span>: [ ... city columns ],		 </div><div class="line">			<span class="string">"geo_index.sublocal"</span>: [ ... street columns ],</div><div class="line"></div><div class="line">			<span class="string">"geo_index.postcode"</span>: [ ... postcode columns ],</div><div class="line"></div><div class="line">			<span class="string">"geo_index.latitude"</span>: [ ... latitude columns ],</div><div class="line">			<span class="string">"geo_index.longitude"</span>: [ ... longitude columns ],</div><div class="line"></div><div class="line">			<span class="string">"geo_index.latitude_longitude"</span>: [ ... latitude_longitude columns, <span class="attr">ex</span>: <span class="string">"lat,lon"</span> ],</div><div class="line">			<span class="string">"geo_index.longitude_latitude"</span>: [ ... longitude_latitude columns, <span class="attr">ex</span>: <span class="string">"lon,lat"</span> ],</div><div class="line"></div><div class="line"></div><div class="line">			<span class="comment">// Date info, the more detailed fieilds you put in, the more accurate and efficient our engine will be</span></div><div class="line">			<span class="string">"date_index.unknown"</span>: [ ... general date columns ],</div><div class="line"></div><div class="line">			<span class="string">"date_index.year"</span>: [ ... year columns ],</div><div class="line">			<span class="string">"date_index.month"</span>: [ ... month columns ],</div><div class="line">			<span class="string">"date_index.day"</span>: [ ... day <span class="keyword">of</span> month columns ],</div><div class="line"></div><div class="line">			<span class="string">"date_index.timestamp"</span>: [ ... epoch timestamp (UTC<span class="number">-0</span>) <span class="keyword">in</span> milliseconds columns ], <span class="comment">// use timestamp for Excel files</span></div><div class="line"></div><div class="line">		<span class="comment">// general information</span></div><div class="line"></div><div class="line">			<span class="string">"user_timezone"</span>: <span class="number">-4</span>, <span class="comment">// time zone offset, user current timezone</span></div><div class="line">			<span class="string">"user_emails"</span>: [ ...array <span class="keyword">of</span> emails that will be notified after analysis finished ],</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">				<span class="comment">/* looking at specific languages, optional</span></div><div class="line">			 	if your documents are all in the same language</div><div class="line">					"run_language_detection":false,</div><div class="line">					"default_language"： "zh", // will increse accuracy and speed of your analysis</div><div class="line">				else</div><div class="line">					"run_language_detection": true,</div><div class="line">					"filter_language": [... optional, only analysis on these languages, ex : 'en','zh','ja' ],</div><div class="line">				*/</div><div class="line"></div><div class="line">		<span class="comment">// customize engine</span></div><div class="line"></div><div class="line">			<span class="string">"sentimentlists"</span>: [ ... array <span class="keyword">of</span> your customized sentiment list, &#123; <span class="string">"fid"</span>: <span class="number">1234567</span>, <span class="string">"version"</span>: <span class="number">1</span>&#125; ],</div><div class="line">			<span class="string">"stopdocslists"</span>: [ ... array <span class="keyword">of</span> your customized junk and feedback list, &#123; <span class="string">"fid"</span>: <span class="number">1234567</span>, <span class="string">"version"</span>: <span class="number">1</span>&#125; ],</div><div class="line">			<span class="string">"stopwordslists"</span>: [ ... array <span class="keyword">of</span> your customized stop words list, &#123; <span class="string">"fid"</span>: <span class="number">1234567</span>, <span class="string">"version"</span>: <span class="number">1</span>&#125; ],</div><div class="line">			<span class="string">"tokenslists"</span>: [ ... array <span class="keyword">of</span> your customized chinese tokens list, &#123; <span class="string">"fid"</span>: <span class="number">1234567</span>, <span class="string">"version"</span>: <span class="number">1</span>&#125; ],</div><div class="line"></div><div class="line">			<span class="string">"taxonomies"</span>: [ ... <span class="comment">// tag your documents with selected taxonomy</span></div><div class="line">			&#123; <span class="string">"label"</span>: [... Optional, leave empty array, thi is an array <span class="keyword">of</span> the labels <span class="keyword">in</span> the taxonomy hierarcy,</div><div class="line">				<span class="keyword">if</span> you only want to tag a subtree <span class="keyword">of</span> your taxonomy, input the path to your desired label ],</div><div class="line">			<span class="string">"model"</span> : &#123; <span class="string">"fid"</span>: <span class="number">123456789</span>, <span class="string">"version"</span>: <span class="number">1</span>&#125; ],</div><div class="line"></div><div class="line">	&#125;,</div><div class="line">	<span class="string">"meta"</span>: &#123;</div><div class="line">		<span class="string">"name"</span>: <span class="string">"API test small_lulu.csv 2016-6-24"</span>, <span class="comment">// analysis name</span></div><div class="line">		<span class="string">"source"</span>: <span class="string">"csv"</span>, <span class="comment">// data format csv or xlsx</span></div><div class="line">		<span class="string">"description"</span>: <span class="string">"Descrption of your analysis"</span>, <span class="comment">// string</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/04/27/API-test/" data-id="cj20y6dc60000bdruafq54f21" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/04/27/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/04/27/API-test/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/27/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
