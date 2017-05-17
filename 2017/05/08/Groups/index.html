@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Groups | Stratifyd SDK</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="##Groups and sharingGroups are key functions of Stratfyd platform. It allows users to collerate within their enterprise. User can create groups, add other user to groups with different access level, s">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Groups">
+<meta property="og:url" content="http://yoursite.com/2017/05/08/Groups/index.html">
+<meta property="og:site_name" content="Stratifyd SDK">
+<meta property="og:description" content="##Groups and sharingGroups are key functions of Stratfyd platform. It allows users to collerate within their enterprise. User can create groups, add other user to groups with different access level, s">
+<meta property="og:updated_time" content="2017-05-08T15:20:34.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Groups">
+<meta name="twitter:description" content="##Groups and sharingGroups are key functions of Stratfyd platform. It allows users to collerate within their enterprise. User can create groups, add other user to groups with different access level, s">
+  
+    <link rel="alternate" href="/atom.xml" title="Stratifyd SDK" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Stratifyd SDK</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Groups" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/08/Groups/" class="article-date">
+  <time datetime="2017-05-08T07:50:13.000Z" itemprop="datePublished">2017-05-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Groups
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##Groups and sharing<br>Groups are key functions of Stratfyd platform. It allows users to collerate within their enterprise.</p>
+<p>User can create groups, add other user to groups with different access level, share relational objects such as analysis, streams, dashboards, taxonomies and etc to each group.</p>
+<h3 id="Create-a-group"><a href="#Create-a-group" class="headerlink" title="Create a group"></a>Create a group</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// import signals api</span></div><div class="line"><span class="keyword">var</span> Signals = <span class="built_in">require</span>(<span class="string">'signals-api'</span>);</div><div class="line"><span class="comment">// load your credential</span></div><div class="line"><span class="keyword">var</span> kAPPCredential = <span class="built_in">require</span>(<span class="string">'./appCredential'</span>);</div><div class="line"><span class="keyword">var</span> api = <span class="keyword">new</span> Signals(kAPPCredential,<span class="string">'en'</span>);</div><div class="line">api.createGroup( name, meta, <span class="function"><span class="keyword">function</span>(<span class="params"> error, body,response </span>) </span>&#123;</div><div class="line">	<span class="keyword">if</span>( response.success ) &#123;</div><div class="line">		<span class="built_in">console</span>.log(<span class="string">'group created'</span>);</div><div class="line">		<span class="keyword">var</span> groupId = body.payload._id;</div><div class="line">		<span class="comment">// do something with the id</span></div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="Delete-a-group"><a href="#Delete-a-group" class="headerlink" title="Delete a group"></a>Delete a group</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// import signals api</span></div><div class="line"><span class="keyword">var</span> Signals = <span class="built_in">require</span>(<span class="string">'signals-api'</span>);</div><div class="line"><span class="comment">// load your credential</span></div><div class="line"><span class="keyword">var</span> kAPPCredential = <span class="built_in">require</span>(<span class="string">'./appCredential'</span>);</div><div class="line"><span class="keyword">var</span> api = <span class="keyword">new</span> Signals(kAPPCredential,<span class="string">'en'</span>);</div><div class="line"><span class="keyword">var</span> groupId = <span class="comment">/* your group id */</span></div><div class="line">api.deleteGroup( groupId, <span class="function"><span class="keyword">function</span>(<span class="params"> error, body,response </span>) </span>&#123;</div><div class="line">	<span class="keyword">if</span>( response.success ) &#123;</div><div class="line">		<span class="built_in">console</span>.log(<span class="string">'group deleted'</span>);</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="Update-a-group"><a href="#Update-a-group" class="headerlink" title="Update a group"></a>Update a group</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// import signals api</span></div><div class="line"><span class="keyword">var</span> Signals = <span class="built_in">require</span>(<span class="string">'signals-api'</span>);</div><div class="line"><span class="comment">// load your credential</span></div><div class="line"><span class="keyword">var</span> kAPPCredential = <span class="built_in">require</span>(<span class="string">'./appCredential'</span>);</div><div class="line"><span class="keyword">var</span> api = <span class="keyword">new</span> Signals(kAPPCredential,<span class="string">'en'</span>);</div><div class="line"><span class="keyword">var</span> groupId = <span class="comment">/* your group id */</span></div><div class="line">api.updateGroup( groupId, &#123; <span class="attr">name</span>: <span class="string">'New Name'</span>, <span class="attr">meta</span>: &#123; <span class="comment">/* any meta field*/</span> &#125; &#125;, <span class="function"><span class="keyword">function</span>(<span class="params"> error, body,response </span>) </span>&#123;</div><div class="line">	<span class="keyword">if</span>( response.success ) &#123;</div><div class="line">		<span class="built_in">console</span>.log(<span class="string">'group updated'</span>);</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="Get-a-group-detail"><a href="#Get-a-group-detail" class="headerlink" title="Get a group detail"></a>Get a group detail</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// import signals api</span></div><div class="line"><span class="keyword">var</span> Signals = <span class="built_in">require</span>(<span class="string">'signals-api'</span>);</div><div class="line"><span class="comment">// load your credential</span></div><div class="line"><span class="keyword">var</span> kAPPCredential = <span class="built_in">require</span>(<span class="string">'./appCredential'</span>);</div><div class="line"><span class="keyword">var</span> api = <span class="keyword">new</span> Signals(kAPPCredential,<span class="string">'en'</span>);</div><div class="line"><span class="keyword">var</span> groupId = <span class="comment">/* your group id */</span></div><div class="line">api.getGroup( groupId, <span class="function"><span class="keyword">function</span>(<span class="params"> error, body,response </span>) </span>&#123;</div><div class="line">	<span class="keyword">if</span>( response.success ) &#123;</div><div class="line">		<span class="keyword">var</span> group = body.payload;</div><div class="line">		<span class="comment">/*do something with the detail*/</span></div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="Change-access-level-for-a-user-in-the-group"><a href="#Change-access-level-for-a-user-in-the-group" class="headerlink" title="Change access level for a user in the group"></a>Change access level for a user in the group</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// import signals api</span></div><div class="line"><span class="keyword">var</span> Signals = <span class="built_in">require</span>(<span class="string">'signals-api'</span>);</div><div class="line"><span class="comment">// load your credential</span></div><div class="line"><span class="keyword">var</span> kAPPCredential = <span class="built_in">require</span>(<span class="string">'./appCredential'</span>);</div><div class="line"><span class="keyword">var</span> api = <span class="keyword">new</span> Signals(kAPPCredential,<span class="string">'en'</span>);</div><div class="line"><span class="keyword">var</span> groupId = <span class="comment">/* your group id */</span>, userId = <span class="comment">/*Your user id*/</span>, acessLevel = <span class="comment">/*1~4*/</span></div><div class="line">api.changeUserAccess( groupId, userId, accessLevel, <span class="function"><span class="keyword">function</span>(<span class="params"> error, body,response </span>) </span>&#123;</div><div class="line">	<span class="keyword">if</span>( response.success ) &#123;</div><div class="line">		<span class="comment">// access level changed	</span></div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="Share-relational-object-with-a-user-group"><a href="#Share-relational-object-with-a-user-group" class="headerlink" title="Share relational object with a user/group"></a>Share relational object with a user/group</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// import signals api</span></div><div class="line"><span class="keyword">var</span> Signals = <span class="built_in">require</span>(<span class="string">'signals-api'</span>);</div><div class="line"><span class="comment">// load your credential</span></div><div class="line"><span class="keyword">var</span> kAPPCredential = <span class="built_in">require</span>(<span class="string">'./appCredential'</span>);</div><div class="line"><span class="keyword">var</span> api = <span class="keyword">new</span> Signals(kAPPCredential,<span class="string">'en'</span>);</div><div class="line"><span class="keyword">var</span> fid = <span class="comment">/* object fid */</span>, type = <span class="comment">/* relational object type dashboards,jobs,streams...	*/</span></div><div class="line"><span class="keyword">var</span> groupId = <span class="comment">/* your group/user id */</span>, acessLevel = <span class="comment">/*1~4*/</span></div><div class="line">api.shareWith( fid, type, groupId, accessLevel, <span class="function"><span class="keyword">function</span>(<span class="params"> error, body,response </span>) </span>&#123;</div><div class="line">	<span class="keyword">if</span>( response.success ) &#123;</div><div class="line">		<span class="comment">// access level changed	</span></div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/08/Groups/" data-id="cj2sumo4f0000jdruv3gs2ntl" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/05/08/Analysis/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          Analysis
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/05/08/RelationalObject/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">RelationalObject</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/05/08/RelationalObject/">RelationalObject</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/08/Groups/">Groups</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/08/Analysis/">Analysis</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/08/Installation/">Installation</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/08/SDK-Overview/">SDK Overview</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Stratifyd Dev Team<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

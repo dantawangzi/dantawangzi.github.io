@@ -3,18 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Installation | Hexo</title>
+  <title>Installation | Stratifyd SDK</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords">
+  <meta name="description" content="Install Stratifyd SDK####Requirements Installing Stratifyd SDK is quite easy. However, you do need to have a couple of other things installed first:  Node.js Git  InstallationIf your computer already">
+<meta name="keywords">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Installation">
 <meta property="og:url" content="http://yoursite.com/2017/05/08/Installation/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:updated_time" content="2017-05-08T04:12:59.000Z">
+<meta property="og:site_name" content="Stratifyd SDK">
+<meta property="og:description" content="Install Stratifyd SDK####Requirements Installing Stratifyd SDK is quite easy. However, you do need to have a couple of other things installed first:  Node.js Git  InstallationIf your computer already">
+<meta property="og:updated_time" content="2017-05-08T04:58:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Installation">
+<meta name="twitter:description" content="Install Stratifyd SDK####Requirements Installing Stratifyd SDK is quite easy. However, you do need to have a couple of other things installed first:  Node.js Git  InstallationIf your computer already">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="Stratifyd SDK" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -35,7 +38,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">Stratifyd SDK</a>
       </h1>
       
     </div>
@@ -50,9 +53,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -83,11 +86,35 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="Install-Stratifyd-SDK"><a href="#Install-Stratifyd-SDK" class="headerlink" title="Install Stratifyd SDK"></a>Install Stratifyd SDK</h3><p>####Requirements</p>
+<p>Installing <a href="https://www.npmjs.com/package/signals-api" target="_blank" rel="external">Stratifyd SDK</a> is quite easy. However, you do need to have a couple of other things installed first:</p>
+<ul>
+<li><a href="nodejs.org">Node.js</a></li>
+<li><a href="https://git-scm.com/" target="_blank" rel="external">Git</a></li>
+</ul>
+<h4 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h4><p>If your computer already has these, congratulations! Just install Stratifyd SDK with npm:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install signals-api</div></pre></td></tr></table></figure>
+<h4 id="Connect-to-Straitfyd-Portal"><a href="#Connect-to-Straitfyd-Portal" class="headerlink" title="Connect to Straitfyd Portal"></a>Connect to Straitfyd Portal</h4><p>Once you have installed SDK, you need to get your credentials to access Straityfd serivices.</p>
+<ol>
+<li>Go to the main Stratifyd Portal for your enterprise, usually it is <em><a href="https://your-subdomain.stratifyd.com" target="_blank" rel="external">https://your-subdomain.stratifyd.com</a></em> or <em><a href="https://your-subdomain.stratifyd.cn" target="_blank" rel="external">https://your-subdomain.stratifyd.cn</a></em></li>
+<li>Login with your credentials, in the home page, go to seetings view and click on <strong>Create API Key</strong></li>
+<li>Download you API Key as a json file. The API key has the same user groups as the owner.</li>
+</ol>
+<p><strong>Warning!</strong> It’s your resposibility to protect the credential.<br>A json with a complete credential will be pasted to your clipboard.</p>
+<p>NodeJS has a easy way to load json.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports=&#123;<span class="comment">/*your credential here*/</span>&#125; <span class="comment">// load json with require</span></div></pre></td></tr></table></figure>
+<p>If you want to use the command line, save the credential to <strong>.signalsrc</strong> under your working folder.</p>
+<p>####Getting Started<br>Import your API Key into your NodeJS code.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// import signals api</span></div><div class="line"><span class="keyword">var</span> Signals = <span class="built_in">require</span>(<span class="string">'signals-api'</span>).Signals;</div><div class="line"><span class="comment">// load your credential</span></div><div class="line"><span class="keyword">var</span> kAPPCredential = <span class="built_in">require</span>(<span class="string">'./appCredential'</span>);</div><div class="line"><span class="comment">// if region is undefined, then it is defaulted to en</span></div><div class="line"><span class="keyword">var</span> region = <span class="string">'en'</span></div><div class="line"><span class="keyword">var</span> api = Signals(kAPPCredential,<span class="string">'en'</span>);</div><div class="line"><span class="comment">// do something with the api ...</span></div></pre></td></tr></table></figure>
+<p><strong>Replace ‘en’ with ‘zh’ if you are using china node</strong></p>
+<h4 id="Install-Signals-Command-Line-Tool"><a href="#Install-Signals-Command-Line-Tool" class="headerlink" title="Install Signals Command Line Tool"></a>Install Signals Command Line Tool</h4><p><strong>Command line tool is no longer included in the signals-api, use signals-cli instead</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g signals-cli</div></pre></td></tr></table></figure>
+<p>You are now connected to Straitfyd, please review other chapters to see how to run analysis, upload data and create groups.</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/08/Installation/" data-id="cj2fmi4a10002taru2r4oxicb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/08/Installation/" data-id="cj2sumo4l0001jdru6a5v8vim" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -97,7 +124,7 @@
 <nav id="article-nav">
   
     <a href="/2017/05/08/SDK-Overview/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
+      <strong class="article-nav-caption">Récent</strong>
       <div class="article-nav-title">
         
           SDK Overview
@@ -107,7 +134,7 @@
   
   
     <a href="/2017/05/08/Analysis/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">Ancien</strong>
       <div class="article-nav-title">Analysis</div>
     </a>
   
@@ -132,7 +159,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
     </div>
   </div>
 
@@ -140,9 +167,17 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/05/08/RelationalObject/">RelationalObject</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/08/Groups/">Groups</a>
+          </li>
         
           <li>
             <a href="/2017/05/08/Analysis/">Analysis</a>
@@ -154,14 +189,6 @@
         
           <li>
             <a href="/2017/05/08/SDK-Overview/">SDK Overview</a>
-          </li>
-        
-          <li>
-            <a href="/2017/04/28/API-test/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/04/28/hello-world/">Hello World</a>
           </li>
         
       </ul>
@@ -176,8 +203,8 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      &copy; 2017 Stratifyd Dev Team<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
